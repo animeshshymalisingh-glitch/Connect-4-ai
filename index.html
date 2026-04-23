@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect 4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <div class="app">
+
+    <header class="header">
+      <div class="logo">CONNECT<span>4</span></div>
+      <div class="score-bar">
+        <div class="score-card" id="score-red">
+          <div class="score-chip red"></div>
+          <div class="score-info">
+            <span class="score-label" id="label-red">Player 1</span>
+            <span class="score-num" id="wins-red">0</span>
+          </div>
+        </div>
+        <div class="score-divider">VS</div>
+        <div class="score-card" id="score-yellow">
+          <div class="score-chip yellow"></div>
+          <div class="score-info">
+            <span class="score-label" id="label-yellow">Player 2</span>
+            <span class="score-num" id="wins-yellow">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mode-selector">
+      <button class="mode-btn active" id="btn-pvp" onclick="setMode('pvp')">2 Players</button>
+      <button class="mode-btn" id="btn-ai" onclick="setMode('ai')">vs AI</button>
+    </div>
+
+    <div class="game-area">
+      <div class="turn-indicator">
+        <div class="turn-chip" id="turn-chip"></div>
+        <span id="turn-text">Player 1's turn</span>
+      </div>
+
+      <div class="board-wrapper">
+        <div class="col-hover-row" id="hover-row"></div>
+        <div class="board" id="board"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="ctrl-btn" onclick="resetGame()">New Game</button>
+      <button class="ctrl-btn ghost" onclick="resetScores()">Reset Scores</button>
+    </div>
+
+  </div>
+
+  <!-- Win Modal -->
+  <div class="modal-overlay" id="modal" style="display:none">
+    <div class="modal">
+      <div class="modal-chip" id="modal-chip"></div>
+      <h2 id="modal-title">Player 1 Wins!</h2>
+      <p id="modal-sub">Brilliant play 🎉</p>
+      <button class="ctrl-btn" onclick="resetGame()">Play Again</button>
+    </div>
+  </div>
+
+  <script src="ai.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
